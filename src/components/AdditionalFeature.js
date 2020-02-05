@@ -1,11 +1,14 @@
 import React from 'react';
-import { buyItem } from '../redux'
+import { useDispatch } from 'react-redux';
+import { addFeature } from '../redux';
 
 const AdditionalFeature = props => {
+  const dispatch = useDispatch()
+  
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button onClick={buyItem} className="button">Add</button>
+      <button onClick={()=> dispatch(addFeature())} className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );

@@ -17,16 +17,23 @@ const initialState = {
     ]
 }
 
-export const buyItem = item => {
+export const addFeature = id => {
    return {
-      type: 'BUY_ITEM',
-      payload: item
+      type: 'ADD_FEATURE',
+      payload: id
+   }
+ };
+
+ export const removeFeature = feature => {
+   return {
+      type: 'REMOVE_FEATURE',
+      payload: feature
    }
  };
 
  const reducer = (state = initialState, action) => {
    switch(action.type) {
-      case 'BUY_ITEM' : 
+      case 'ADD_FEATURE' : 
          return {
             ...state,
             features: [
@@ -34,9 +41,17 @@ export const buyItem = item => {
                action.payload
             ]
          }
+      case 'REMOVE_FEATURE' :
+         const updatedArr = state.features.filter(item => item !== action.payload)
+         return {
+            ...state,
+            features: updatedArr
+         }
+
       default: return state
    }
 }
 
 const store = createStore(reducer);
+store.subscribe(() => console.log(store.getState()))
 export default store;
