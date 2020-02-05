@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import AddedFeature from './AddedFeature';
 
-const AddedFeatures = (props) => {
+const AddedFeatures = () => {
   const features = useSelector(state=> state.car.features)
 
   return (

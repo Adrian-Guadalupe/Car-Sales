@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const Header = (props) => {
+const Header = () => {
   const name = useSelector(state => state.car.name)
   const image = useSelector(state => state.car.image)
   const price = useSelector(state => state.car.name)

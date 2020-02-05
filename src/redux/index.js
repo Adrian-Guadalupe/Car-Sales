@@ -17,17 +17,17 @@ const initialState = {
     ]
 }
 
-export const addFeature = id => {
+export const addFeature = feature => {
    return {
       type: 'ADD_FEATURE',
-      payload: id
+      payload: feature
    }
  };
 
  export const removeFeature = feature => {
    return {
       type: 'REMOVE_FEATURE',
-      payload: feature
+      payload: feature,
    }
  };
 
@@ -36,18 +36,25 @@ export const addFeature = id => {
       case 'ADD_FEATURE' : 
          return {
             ...state,
-            features: [
-               ...state.features,
-               action.payload
-            ]
+            additionalPrice: state.additionalPrice + action.payload.price,
+            car: {
+               ...state.car,
+               features: [
+                  ...state.car.features,
+                  action.payload
+               ]
+            },
          }
       case 'REMOVE_FEATURE' :
-         const updatedArr = state.features.filter(item => item !== action.payload)
+         const updatedArr = state.car.features.filter(item => item !== action.payload)
          return {
             ...state,
-            features: updatedArr
+            additionalPrice: state.additionalPrice - action.payload.price,
+            car: {
+               ...state.car,
+               features: updatedArr
+            }
          }
-
       default: return state
    }
 }

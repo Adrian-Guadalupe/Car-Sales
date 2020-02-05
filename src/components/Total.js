@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const Total = (props) => {
+const Total = () => {
   const price = useSelector(state => state.car.price)
   const additionalPrice = useSelector(state => state.additionalPrice)
 
