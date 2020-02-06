@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 const Header = () => {
   const name = useSelector(state => state.car.name)
   const image = useSelector(state => state.car.image)
-  const price = useSelector(state => state.car.name)
+  const price = useSelector(state => state.car.price)
+  const additionalPrice = useSelector(state => state.additionalPrice)
 
   return (
     <>
@@ -12,7 +13,7 @@ const Header = () => {
         <img src={image} alt={name} />
       </figure>
       <h2>{name}</h2>
-      <p>Amount: ${price}</p>
+      <p>Amount: ${price + additionalPrice}</p>
     </>
   );
 };
