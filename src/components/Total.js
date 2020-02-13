@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Total = () => {
-  const price = useSelector(state => state.car.price)
+  const { price } = useSelector(state => state.car)
   const additionalPrice = useSelector(state => state.additionalPrice)
 
   return (

@@ -2,9 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const name = useSelector(state => state.car.name)
-  const image = useSelector(state => state.car.image)
-  const price = useSelector(state => state.car.price)
+  const {name, image, price} = useSelector(state => state.car)
   const additionalPrice = useSelector(state => state.additionalPrice)
 
   return (
